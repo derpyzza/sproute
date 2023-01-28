@@ -9,10 +9,11 @@ type Route struct {
 
 	Method string `json:"method"`
 
-	Handler http.HandlerFunc `json:"handler"`
+	Handler http.Handler `json:"handler"`
 }
 
 func (rt Route) match(req *http.Request) bool {
+
 	if rt.Method != req.Method {
 		return false
 	}
